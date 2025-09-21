@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost & Found Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Lost & Found <span>Portal</span></h1>
+        <div class="user-role-selector">
+            <span id="current-role-label">Public</span>
+            <div class="dropdown">
+                <button class="dropbtn">👥 Roles</button>
+                <div class="dropdown-content">
+                    <a href="#" data-role="public">Public</a>
+                    <a href="#" data-role="cr">CR</a>
+                    <a href="#" data-role="admin">Admin</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="app-container">
+        </main>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="login-title">Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <p id="loginError" class="error-message"></p>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="addItemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Add Item</h2>
+            <form id="addItemForm">
+                <label for="itemType">Type:</label>
+                <select id="itemType" name="itemType" required>
+                    <option value="Lost">Lost</option>
+                    <option value="Found">Found</option>
+                </select>
+
+                <label for="itemDescription">Description:</label>
+                <textarea id="itemDescription" name="itemDescription" rows="4" required></textarea>
+
+                <label for="itemLocation">Location:</label>
+                <input type="text" id="itemLocation" name="itemLocation" required>
+
+                <label for="itemBranch">Branch/Department:</label>
+                <select id="itemBranch" name="itemBranch" required>
+                    <option value="">Select Branch</option>
+                    <option value="IT">IT</option>
+                    <option value="CST">CST</option>
+                    <option value="ENC">ENC</option>
+                    <option value="CE">CE</option>
+                    <option value="DS">DS</option>
+                </select>
+
+                <label for="itemImage">Image URL <span id="image-label-note">(Required for Found)</span>:</label>
+                <input type="url" id="itemImage" name="itemImage">
+                <span id="image-error-message" class="error-message"></span>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="claimModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Claim Item</h2>
+            <form id="claimForm">
+                <p>Claiming item: <strong id="claiming-item-title"></strong></p>
+                <input type="hidden" id="claimItemId">
+
+                <label for="claimerName">Your Name:</label>
+                <input type="text" id="claimerName" name="claimerName" required>
+
+                <label for="claimerContact">Your Contact:</label>
+                <input type="tel" id="claimerContact" name="claimerContact" pattern="[0-9]{10}" placeholder="e.g., 9876543210" required>
+                <span id="contact-error-message" class="error-message"></span>
+
+                <label for="claimerBranch">Your Branch:</label>
+                <select id="claimerBranch" name="claimerBranch" required>
+                    <option value="">Select Branch</option>
+                    <option value="IT">IT</option>
+                    <option value="CST">CST</option>
+                    <option value="ENC">ENC</option>
+                    <option value="CE">CE</option>
+                    <option value="DS">DS</option>
+                </select>
+
+                <label for="claimProofDesc">Proof Description:</label>
+                <textarea id="claimProofDesc" name="claimProofDesc" rows="4" required></textarea>
+
+                <label for="claimProofImage">Proof Image URL (Optional):</label>
+                <input type="url" id="claimProofImage" name="claimProofImage">
+
+                <button type="submit">Submit Claim</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

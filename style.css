@@ -1,0 +1,440 @@
+:root {
+    /* Pastel colors for the gradient */
+    --pastel-pink: #ffdae9;
+    --pastel-purple: #e0baff;
+    --pastel-blue: #bafff1;
+    --pastel-green: #d2ffb5;
+    --pastel-yellow: #f8ffb7;
+
+    /* General UI colors */
+    --card-bg: rgba(255, 255, 255, 0.7); /* Lighter card background for contrast */
+    --card-border: rgba(255, 255, 255, 0.9);
+    --text-color-dark: #333; /* Darker text for readability on light background */
+    --text-color-light: #ffffff; /* For elements that need to stand out on dark */
+    --accent-color: #e74c3c; /* A vibrant accent for headers/buttons */
+
+    --button-primary: #8e44ad; /* A deeper purple for buttons */
+    --button-hover: #9b59b6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-color-dark); /* Default text color adjusted */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+
+    /* --- NEW GRADIENT BACKGROUND --- */
+    background: linear-gradient(
+        135deg,
+        var(--pastel-blue) 0%,
+        var(--pastel-purple) 25%,
+        var(--pastel-pink) 50%,
+        var(--pastel-yellow) 75%,
+        var(--pastel-green) 100%
+    );
+}
+
+/* --- SPARKLE OVERLAY (using pseudo-elements and gradients) --- */
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+        radial-gradient(circle at 40% 50%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+        radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+        radial-gradient(circle at 20% 90%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+        radial-gradient(circle at 60% 30%, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+    background-size: 200px 200px; /* Adjust spacing of sparkles */
+    background-repeat: repeat;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.8;
+    animation: sparkle-fade 15s infinite alternate; /* Subtle animation */
+}
+
+/* More sparkle variation */
+body::after {
+    transform: rotate(15deg); /* Offset for different sparkle pattern */
+    background-image:
+        radial-gradient(circle at 80% 15%, rgba(255, 255, 255, 0.7) 1px, transparent 1px),
+        radial-gradient(circle at 25% 65%, rgba(255, 255, 255, 0.473) 1px, transparent 1px),
+        radial-gradient(circle at 55% 5%, rgba(255, 255, 255, 0.7) 1px, transparent 1px);
+    opacity: 0.7;
+    animation: sparkle-fade 12s infinite alternate-reverse;
+}
+
+@keyframes sparkle-fade {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.8; }
+}
+
+
+header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    color: var(--text-color-dark);
+}
+
+header h1 {
+    font-weight: 600;
+    color: var(--button-primary); /* Using button color for header highlight */
+}
+
+header h1 span {
+    font-weight: 300;
+    color: var(--text-color-dark);
+}
+
+.user-role-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-role-selector #current-role-label {
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 8px 15px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    color: var(--text-color-dark);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: var(--card-bg);
+    color: var(--text-color-dark);
+    padding: 12px 16px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(8px);
+    transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--card-bg);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    right: 0;
+    top: 100%;
+    margin-top: 10px;
+    color: var(--text-color-dark);
+}
+
+.dropdown-content a {
+    color: var(--text-color-dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 0;
+    flex-grow: 1;
+}
+
+#cr-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+#cr-actions button {
+    background-color: var(--button-primary);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#cr-actions button:hover {
+    background-color: var(--button-hover);
+}
+
+#items-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.item-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.item-type {
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: var(--text-color-light); /* Keep white for type labels */
+}
+
+.item-type.lost {
+    background-color: var(--accent-color); /* Red */
+}
+
+.item-type.found {
+    background-color: #2ecc71; /* Green */
+}
+
+.item-status {
+    font-style: italic;
+    color: var(--text-color-dark);
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.item-image-container {
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: #f0f0f0; /* Light background for images */
+}
+
+.item-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.item-body p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.claim-button, .admin-button {
+    background-color: var(--button-primary);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.claim-button:hover, .admin-button:hover {
+    background-color: var(--button-hover);
+}
+
+.admin-button.approve { background-color: #2ecc71; }
+.admin-button.approve:hover { background-color: #27ae60; }
+.admin-button.reject { background-color: var(--accent-color); }
+.admin-button.reject:hover { background-color: #c0392b; }
+.admin-button.resolve { background-color: #f1c40f; }
+.admin-button.resolve:hover { background-color: #d4ac0d; }
+.admin-button.pending { background-color: #95a5a6; }
+.admin-button.pending:hover { background-color: #7f8c8d; }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Darker overlay for modal focus */
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.95); /* Nearly opaque white for forms */
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    backdrop-filter: blur(15px);
+    color: var(--text-color-dark);
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--button-primary);
+}
+
+.close-button {
+    color: var(--text-color-dark);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close-button:hover {
+    opacity: 1;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: var(--text-color-dark);
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #ffffff;
+    color: var(--text-color-dark);
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    border-color: var(--button-primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.2); /* Purple shadow */
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--button-primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+form button:hover {
+    background-color: var(--button-hover);
+}
+
+.error-message {
+    color: var(--accent-color);
+    font-size: 0.9em;
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.admin-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.claim-proof {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.claim-proof-image-container {
+    width: 100%;
+    max-height: 150px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-role-selector {
+        margin-top: 15px;
+    }
+}
