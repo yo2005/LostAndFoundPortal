@@ -18,13 +18,7 @@ It features a responsive layout and a modern aesthetic with a *glassmorphism* lo
 
 - **Form Validation**  
   - Validates key fields such as phone numbers (must be 10 digits).  
-  - Branch is restricted to a predefined list.  
-
----
-
-## 🏃🏻 How to Run
-1. **Download all files**: Ensure `index.html`, `style.css`, and `script.js` are in the same folder.  
-2. **Open `index.html`**: Double-click it to run in any modern web browser.  
+  - Branch is restricted to a predefined list.    
 
 ---
 
