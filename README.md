@@ -1,52 +1,65 @@
-# Lost & Found Portal Demo
+# Lost & Found Portal 🧩
 
-This is a single-page Lost & Found Portal built using pure HTML, CSS, and vanilla JavaScript. It demonstrates a complete client-side workflow for reporting, claiming, and managing lost and found items.
+Welcome to the **Lost & Found Portal**, a single-page application built with pure **HTML, CSS, and JavaScript**.  
+This demo is a complete, self-contained system that runs entirely in your browser.  
+It features a responsive layout and a modern aesthetic with a *glassmorphism* look, making it both functional and visually appealing.
 
-## How to Run the Demo
+---
 
-1.  **Download all files:** Ensure `index.html`, `style.css`, and `script.js` are in the same folder.
-2.  **Open `index.html`:** Simply double-click `index.html` or open it with any modern web browser (e.g., Chrome, Firefox, Safari). No server or special setup is required.
+## ✨ Features
+- **Role-Based Views**  
+  - **Public:** Browse all items and submit claims for Found items.  
+  - **CR (Campus Representative):** Add new Lost or Found items.  
+  - **Admin:** Manage all items and claims, approve claims, and update item status.
 
-## Key Features
+- **Dynamic Data**  
+  - Items and claims are stored locally using JavaScript, simulating a database.  
+  - Updates reflect instantly without a page reload.  
 
-* **Responsive Design:** The layout is responsive and works well on both desktop and mobile devices.
-* **Modern Aesthetics:** Features a "glassmorphism" design with soft gradients and smooth CSS transitions.
-* **Role-Based Views:** A dropdown in the top-right corner allows you to switch between three user roles:
-    * **Public:** View all items and claim found items.
-    * **Campus Representative (CR):** Add new lost or found items.
-    * **Admin:** Review claims, and approve/reject them.
-* **Client-Side Data:** All item data and state logic are handled in the `script.js` file using a simple JavaScript array, simulating a database without a backend.
+- **Form Validation**  
+  - Validates key fields such as phone numbers (must be 10 digits).  
+  - Branch is restricted to a predefined list.  
 
-## Demo Script
+---
 
-Follow these steps to experience the full workflow:
+## 🚀 How to Run
+1. **Download all files**: Ensure `index.html`, `style.css`, and `script.js` are in the same folder.  
+2. **Open `index.html`**: Double-click it to run in any modern web browser.  
 
-1.  **Load the homepage:** The portal will open in the "Public" view, showing a list of lost and found items. Notice the **Claim** button only appears on found items.
+---
 
-2.  **Switch to CR Role:** Use the dropdown in the top-right corner to select **Campus Rep**. An "Add Item" button will appear.
+## 🔑 Login Credentials
+| Role  | Username | Password   |
+|-------|----------|------------|
+| CR    | `cr`     | `crpass`   |
+| Admin | `admin`  | `adminpass`|
 
-3.  **Add a New Found Item:**
-    * Click the **Add Item** button.
-    * In the form, select "Found".
-    * Fill out the details.
-    * **Crucially, add a placeholder image URL** in the image field.
-    * Submit the form. The new item will appear on the list.
+---
 
-4.  **Switch to Public Role:** Change the role back to **Public**. The newly added item now has a **Claim** button.
+## 📖 Demo Workflow
+1. **Start as a CR**  
+   - Log in and add a new *Found* item with a placeholder image.  
+   - It will instantly appear on the public list with a **Pending** status.  
 
-5.  **Submit a Claim:**
-    * Click the **Claim** button on the item you just added.
-    * Fill out the claim form with your details and proof description. An optional proof image URL can also be added.
-    * Submit the claim.
+2. **Submit a Claim (Public View)**  
+   - Switch to the Public view.  
+   - Find the item you added and submit a claim with your details.  
 
-6.  **Switch to Admin Role:** Change the role to **Admin**. The view will now show all items, but items with claims will have a "Review Claims" button instead of a "Claim" button.
+3. **Admin Approval**  
+   - Log in as **Admin**.  
+   - The item now shows the number of pending claims.  
+   - Review the claim and approve it.  
 
-7.  **Review and Approve/Reject the Claim:**
-    * Click the **Review Claims** button on the item you claimed.
-    * The card will expand to show the claim details you just submitted.
-    * Click **Approve** to accept the claim, which will mark the item as "Resolved".
-    * Alternatively, click **Reject** to remove the claim and keep the item status "Pending".
+4. **Status Update**  
+   - Once approved, the item’s status changes to **Resolved** for all users to see.  
 
-8.  **Final Status Check:** Switch back to the **Public** role. The item's status will now be updated to "Resolved" if the claim was approved.
+---
 
-This demo showcases a full, interactive front-end experience without the need for a server, making it a perfect showcase for a modern web development portfolio.
+## 🛠️ Tech Stack
+- HTML  
+- CSS  
+- JavaScript  
+
+---
+
+> ⚡ This project is for demo purposes only. All data is stored in the browser’s memory and is reset on reload.
