@@ -1,4 +1,4 @@
-# Lost & Found Portal 🧩
+# Lost & Found Portal 🫂
 
 Welcome to the **Lost & Found Portal**, a single-page application built with pure **HTML, CSS, and JavaScript**.  
 This demo is a complete, self-contained system that runs entirely in your browser.  
@@ -6,7 +6,7 @@ It features a responsive layout and a modern aesthetic with a *glassmorphism* lo
 
 ---
 
-## ✨ Features
+## 💅🏻Features
 - **Role-Based Views**  
   - **Public:** Browse all items and submit claims for Found items.  
   - **CR (Campus Representative):** Add new Lost or Found items.  
@@ -22,13 +22,13 @@ It features a responsive layout and a modern aesthetic with a *glassmorphism* lo
 
 ---
 
-## 🚀 How to Run
+## 🏃🏻 How to Run
 1. **Download all files**: Ensure `index.html`, `style.css`, and `script.js` are in the same folder.  
 2. **Open `index.html`**: Double-click it to run in any modern web browser.  
 
 ---
 
-## 🔑 Login Credentials
+## 🧑🏻‍💻Login Credentials
 | Role  | Username | Password   |
 |-------|----------|------------|
 | CR    | `cr`     | `crpass`   |
@@ -36,7 +36,7 @@ It features a responsive layout and a modern aesthetic with a *glassmorphism* lo
 
 ---
 
-## 📖 Demo Workflow
+## 👉🏻 Demo Workflow
 1. **Start as a CR**  
    - Log in and add a new *Found* item with a placeholder image.  
    - It will instantly appear on the public list with a **Pending** status.  
@@ -55,11 +55,11 @@ It features a responsive layout and a modern aesthetic with a *glassmorphism* lo
 
 ---
 
-## 🛠️ Tech Stack
+## 🦾 Tech Stack
 - HTML  
 - CSS  
 - JavaScript  
 
 ---
 
-> ⚡ This project is for demo purposes only. All data is stored in the browser’s memory and is reset on reload.
+> 🥸 This project is for demo purposes only. All data is stored in the browser’s memory and is reset on reload.
